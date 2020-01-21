@@ -28,6 +28,10 @@ class MyNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item mr-3">View All Tournaments</li>
+            <li className="nav-item ml-3 mr-3">|</li>
+            <li className="nav-item ml-3 mr-3">View My Tournaments</li>
+            <li className="nav-item ml-3 mr-3">|</li>
           </ul>
 
           <div className="form-inline my-2 my-lg-0">
