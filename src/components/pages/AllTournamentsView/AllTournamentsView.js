@@ -52,12 +52,24 @@ class AllTournamentsView extends React.Component {
               </label>
             </div>
             <div className="form-check">
-              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></input>
+              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.beachFilter}></input>
               <label className="form-check-label" htmlFor="exampleRadios2">
                 Show Only Beach
               </label>
             </div>
+            <div className="form-check">
+              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" onChange={this.usFilter}></input>
+              <label className="form-check-label" htmlFor="exampleRadios1">
+                Show Only U.S
+              </label>
             </div>
+            <div className="form-check">
+              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.internationalFilter}></input>
+              <label className="form-check-label" htmlFor="exampleRadios2">
+                Show Only International
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     );
