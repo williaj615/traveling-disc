@@ -1,0 +1,48 @@
+{
+  "tournament1": {
+"name": "Poultry Days",
+"startDate": "06/13/2020",
+"endDate": "06/14/2020",
+"bidFee": "$450",
+"registrationLink": "http://www.poultrydays.com/registration.asp",
+"isBeach": true,
+"isInternational": false
+  },
+  "tournament2": {
+"name": "Lei Out",
+"startDate": "01/18/2020",
+"endDate": "01/19/2020",
+"bidFee": "$500",
+"registrationLink": "https://leiout.ultimatecentral.com/e/leiout-2020/register",
+"isBeach": true,
+"isInternational": false
+  },
+  "tournament3": {
+"name": "Kaimana Klassik",
+"startDate": "02/15/2020",
+"endDate": "02/16/2020",
+"bidFee": "$550",
+"registrationLink": "http://www.poultrydays.com/registration.asp",
+"isBeach": true,
+"isInternational": true
+  },
+  "tournament4": {
+"name": "Wildwood",
+"startDate": "07/25/2020",
+"endDate": "07/26/2020",
+"bidFee": "$400",
+"registrationLink": "http://wwbeachultimate.com/registration-now-open/",
+"isBeach": true,
+"isInternational": false
+
+  },
+  "tournament5": {
+"name": "Sunbreak",
+"startDate": "07/04/2020",
+"endDate": "07/06/2020",
+"bidFee": "$475",
+"registrationLink": "https://www.discnw.org/e/2019-sunbreak",
+"isBeach": true,
+"isInternational": false
+  }
+}

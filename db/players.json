@@ -1,0 +1,22 @@
+{ 
+  "player1": {
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
+"tournamentId": "tournament1",
+"status": "going"
+  },
+  "player2": {
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
+"tournamentId": "tournament2",
+"status": "wishlist"
+  },
+  "player3": {
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
+"tournamentId": "tournament3",
+"status": "wishlist"
+  },
+  "player4": {
+"uid": "12345",
+"tournamentId": "tournament6",
+"status": "wishlist"
+  }
+}
