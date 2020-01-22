@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -16,6 +16,7 @@ class MyNavbar extends React.Component {
 
   render() {
     const { authed } = this.props;
+    const tournId = '8910';
 
     return (
       <div className="MyNavbar">
@@ -28,9 +29,9 @@ class MyNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item mr-3">View All Tournaments</li>
+            <Link className="nav-item mr-3" to="/">View All Tournaments</Link>
             <li className="nav-item ml-3 mr-3">|</li>
-            <li className="nav-item ml-3 mr-3">View My Tournaments</li>
+            <Link className="nav-item ml-3 mr-3" to="/personal">View My Tournaments</Link>
             <li className="nav-item ml-3 mr-3">|</li>
           </ul>
 
@@ -39,6 +40,9 @@ class MyNavbar extends React.Component {
           </div>
         </div>
       </nav>
+      <Link to={`/tourn/${tournId}/edit`}>Edit A Tournament</Link>
+      <Link to={`/tourn/${tournId}`}>View A  Single Tournament</Link>
+      <Link to="/tourn/new">Create a New Tournament</Link>
     </div>
     );
   }
