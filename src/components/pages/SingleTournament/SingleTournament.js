@@ -18,9 +18,11 @@ class SingleTournament extends React.Component {
         this.setState({ tournament: response.data });
       })
       .catch((err) => console.error('error in get single tournament', err));
+
     playerData.getPlayersByTournamentId(tournId)
       .then((response) => {
-        this.setState({ tourneyPlayers: response.data });
+        this.setState({ tourneyPlayers: response });
+        console.log(response);
       })
       .catch((err) => console.error('error in get tournament players', err));
   }
@@ -37,7 +39,7 @@ class SingleTournament extends React.Component {
         <p>{tournament.endDate}</p>
         <p>{tournament.bidFee}</p>
         <p>{tournament.registrationLink}</p>
-        <h3>Players going to {tournament.name}</h3>
+        <h3>Players interested in {tournament.name}</h3>
         <div className="d-flex flex-row flex-wrap justify-content-around">
         {tourneyPlayers.map((player) => (<Player key={player.id} player={player}/>))}
         </div>

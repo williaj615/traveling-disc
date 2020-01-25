@@ -4,14 +4,15 @@ import playerShape from '../../../helpers/propz/playerShape';
 
 class Player extends React.Component {
   static propTypes = {
-    tournament: playerShape.playerShape,
+    player: playerShape.playerShape,
   }
 
   render() {
     const { player } = this.props;
     return (
       <div className="card tournament-card col-1 mb-1 mt-1">
-      <p>{player.uid}</p>
+      <p>{player.name}</p>
+      <p>{player.status}</p>
     </div>
     );
   }
