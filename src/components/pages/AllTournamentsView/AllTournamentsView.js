@@ -24,14 +24,6 @@ class AllTournamentsView extends React.Component {
       });
   }
 
-  addATournament = (newTournament) => {
-    tournamentData.saveTournament(newTournament)
-    .then(() => {
-      this.getTournaments();
-    })
-    .catch((errOnSaveTourn) => console.error('err on save tournament', errOnSaveTourn));
-  }
-
   grassFilter = (e) => {
     e.preventDefault();
     const grassTournaments = this.state.tournaments.filter((x) => !x.isBeach);
@@ -66,7 +58,7 @@ class AllTournamentsView extends React.Component {
         <h1>All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-10">
-            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} addATournament={this.addATournament}/>))}
+            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament}/>))}
           </div>
           <div className="filter-form col-2">
             <Link className="btn btn-light mb-4" to="/tourn/new">Add a tournament for your team!</Link>
