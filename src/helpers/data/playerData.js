@@ -9,9 +9,9 @@ const getPlayersByTournamentId = (tournamentId) => new Promise((resolve, reject)
       const allPlayersObj = result.data;
       const players = [];
       if (allPlayersObj != null) {
-        Object.keys(allPlayersObj).forEach((player) => {
-          const newPlayer = allPlayersObj[player];
-          newPlayer.id = player.id;
+        Object.keys(allPlayersObj).forEach((playerId) => {
+          const newPlayer = allPlayersObj[playerId];
+          newPlayer.id = playerId;
           players.push(newPlayer);
         });
       }
