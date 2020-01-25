@@ -11,9 +11,8 @@ class TournamentForm extends React.Component {
     theEndDate: '',
     theBidFee: '',
     theRegLink: '',
-    theIsBeach: '',
-    theIsInternational: '',
-    beachCheckbox: false,
+    theIsBeach: false,
+    theIsInternational: false,
   }
 
 
@@ -40,8 +39,8 @@ class TournamentForm extends React.Component {
       theEndDate: '',
       theBidFee: '',
       theRegLink: '',
-      theIsBeach: '',
-      theIsInternational: '',
+      theIsBeach: null,
+      theIsInternational: null,
     });
   }
 
@@ -70,18 +69,16 @@ class TournamentForm extends React.Component {
     this.setState({ theRegLink: e.target.value });
   }
 
-  beachCheckHandler = (e) => {
-    // const { beachCheckbox } = this.state;
-    // e.preventDefault();
-    if (e.target.id === 'beach-checkbox') {
-      this.setState({ beachCheckbox: true });
-      console.log('checked', e.target.value);
-    }
+  beachChange = (e) => {
+    this.setState((prevState) => ({
+      theIsBeach: !prevState.theIsBeach,
+    }));
   }
 
   internationalChange = (e) => {
-    e.preventDefault();
-    this.setState({ theIsInternational: e.target.value });
+    this.setState((prevState) => ({
+      theIsInternational: !prevState.theIsInternational,
+    }));
   }
 
   render() {
@@ -110,7 +107,7 @@ class TournamentForm extends React.Component {
             <input type="text" className="form-control" id="registration-input" placeholder="Enter tournament registration link" value={this.state.theRegLink} onChange={this.regChange}/>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value={this.state.beachCheckbox} id="beach-checkbox" onChange={this.beachCheckHandler}/>
+            <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange}/>
             <label className="form-check-label" htmlFor="beach-checkbox">
               Beach Tournament
             </label>
