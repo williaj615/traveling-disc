@@ -40,9 +40,7 @@ class MyNavbar extends React.Component {
           </div>
         </div>
       </nav>
-      <Link to={`/tourn/${tournId}/edit`}>Edit A Tournament</Link>
       <Link to={`/tourn/${tournId}`}></Link>
-      <Link to="/tourn/new">Create a New Tournament</Link>
     </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import tournamentData from '../../../helpers/data/tournamentData';
 import Tournament from '../../shared/Tournament/Tournament';
 
@@ -21,6 +22,14 @@ class AllTournamentsView extends React.Component {
       .then(() => {
         this.getTournaments();
       });
+  }
+
+  addATournament = (newTournament) => {
+    tournamentData.saveTournament(newTournament)
+    .then(() => {
+      this.getTournaments();
+    })
+    .catch((errOnSaveTourn) => console.error('err on save tournament', errOnSaveTourn));
   }
 
   grassFilter = (e) => {
@@ -57,9 +66,10 @@ class AllTournamentsView extends React.Component {
         <h1>All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-10">
-            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament}/>))}
+            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} addATournament={this.addATournament}/>))}
           </div>
           <div className="filter-form col-2">
+            <Link className="btn btn-light mb-4" to="/tourn/new">Add a tournament for your team!</Link>
             <div className="form-check">
               <input className="form-check-input" type="radio" name="exampleRadios" id="grassRadios" value="option1" onChange={this.grassFilter}></input>
               <label className="form-check-label" htmlFor="grassRadios">
