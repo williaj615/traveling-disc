@@ -15,8 +15,10 @@ class Tournament extends React.Component {
     const { tournament } = this.props;
     return (
       <div className="card tournament-card col-3 m-3">
-      <button className="delete-button btn btn-danger mb-2" >X</button>
-      <button className="edit-button btn btn-dark">Edit</button>
+      { tournament.uid === this.currentUser
+        ? (<div><button className="delete-button btn btn-danger mb-2" >X</button><button className="edit-button btn btn-dark">Edit</button></div>)
+        : null
+      }
       <h3>{tournament.name}</h3>
       <p>{tournament.startDate}</p>
       <p>{tournament.endDate}</p>

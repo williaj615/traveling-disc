@@ -6,7 +6,8 @@
 "bidFee": "$450",
 "registrationLink": "http://www.poultrydays.com/registration.asp",
 "isBeach": false,
-"isInternational": false
+"isInternational": false,
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2"
   },
   "tournament2": {
 "name": "Lei Out",
@@ -15,7 +16,8 @@
 "bidFee": "$500",
 "registrationLink": "https://leiout.ultimatecentral.com/e/leiout-2020/register",
 "isBeach": true,
-"isInternational": false
+"isInternational": false,
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2"
   },
   "tournament3": {
 "name": "Kaimana Klassik",
@@ -24,7 +26,8 @@
 "bidFee": "$550",
 "registrationLink": "http://www.poultrydays.com/registration.asp",
 "isBeach": true,
-"isInternational": true
+"isInternational": true,
+"uid": "7634576"
   },
   "tournament4": {
 "name": "Wildwood",
@@ -33,7 +36,8 @@
 "bidFee": "$400",
 "registrationLink": "http://wwbeachultimate.com/registration-now-open/",
 "isBeach": true,
-"isInternational": false
+"isInternational": false,
+"uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2"
 
   },
   "tournament5": {
@@ -43,6 +47,7 @@
 "bidFee": "$475",
 "registrationLink": "https://www.discnw.org/e/2019-sunbreak",
 "isBeach": false,
-"isInternational": false
+"isInternational": false,
+"uid": "7634576"
   }
 }
