@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import tournamentData from '../../../helpers/data/tournamentData';
 import Tournament from '../../shared/Tournament/Tournament';
 
@@ -60,6 +61,7 @@ class AllTournamentsView extends React.Component {
             {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament}/>))}
           </div>
           <div className="filter-form col-2">
+            <Link className="btn btn-light mb-4" to="/tourn/new">Add a tournament for your team!</Link>
             <div className="form-check">
               <input className="form-check-input" type="radio" name="exampleRadios" id="grassRadios" value="option1" onChange={this.grassFilter}></input>
               <label className="form-check-label" htmlFor="grassRadios">

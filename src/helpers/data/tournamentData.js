@@ -26,5 +26,15 @@ const deleteTournament = (tournamentId) => axios.delete(`${baseUrl}/tournaments/
 
 const getSingleTournament = (tournamentId) => axios.get(`${baseUrl}/tournaments/${tournamentId}.json`);
 
+const saveTournament = (newTournament) => axios.post(`${baseUrl}/tournaments.json`, newTournament);
 
-export default { getAllTournaments, getSingleTournament, deleteTournament };
+const updateTournament = (tournamentId, updatedTournament) => axios.put(`${baseUrl}/tournaments/${tournamentId}.json`, updatedTournament);
+
+
+export default {
+  getAllTournaments,
+  getSingleTournament,
+  deleteTournament,
+  saveTournament,
+  updateTournament,
+};

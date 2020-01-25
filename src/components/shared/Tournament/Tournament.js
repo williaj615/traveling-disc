@@ -24,7 +24,10 @@ class Tournament extends React.Component {
     return (
       <div className="card tournament-card col-3 m-3">
       { tournament.uid === this.currentUser
-        ? (<div><button className="delete-button btn btn-danger mb-2" onClick={this.deleteTournamentEvent}>X</button><button className="edit-button btn btn-dark">Edit</button></div>)
+        ? (<div>
+          <button className="delete-button btn btn-danger mb-2" onClick={this.deleteTournamentEvent}>X</button>
+          <Link className="edit-button btn btn-dark" to={`/tourn/${tournament.id}/edit`}>Edit</Link>
+          </div>)
         : null
       }
       <h3>{tournament.name}</h3>
