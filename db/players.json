@@ -2,21 +2,25 @@
   "player1": {
 "uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
 "tournamentId": "tournament1",
-"status": "going"
+"status": "going",
+"name": "Jasmine Williams"
   },
   "player2": {
 "uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
 "tournamentId": "tournament2",
-"status": "wishlist"
+"status": "wishlist",
+"name": "Jasmine Williams"
   },
   "player3": {
 "uid": "BtzLN7o39JR2AVz1lNNhLRQ3n7H2",
 "tournamentId": "tournament3",
-"status": "wishlist"
+"status": "wishlist",
+"name": "Jasmine Williams"
   },
   "player4": {
 "uid": "12345",
-"tournamentId": "tournament6",
-"status": "wishlist"
+"tournamentId": "tournament5",
+"status": "wishlist",
+"name": "Ryan Del Casino"
   }
 }

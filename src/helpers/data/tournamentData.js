@@ -22,4 +22,7 @@ const getAllTournaments = () => new Promise((resolve, reject) => {
     });
 });
 
-export default { getAllTournaments };
+const getSingleTournament = (tournamentId) => axios.get(`${baseUrl}/tournaments/${tournamentId}.json`);
+
+
+export default { getAllTournaments, getSingleTournament };

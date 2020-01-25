@@ -9,6 +9,7 @@ const tournamentShape = PropTypes.shape({
   registrationLink: PropTypes.string.isRequired,
   isBeach: PropTypes.bool.isRequired,
   isInternational: PropTypes.bool.isRequired,
+  uid: PropTypes.string.isRequired,
 });
 
 export default { tournamentShape };
