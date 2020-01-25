@@ -22,7 +22,9 @@ const getAllTournaments = () => new Promise((resolve, reject) => {
     });
 });
 
+const deleteTournament = (tournamentId) => axios.delete(`${baseUrl}/tournaments/${tournamentId}.json`);
+
 const getSingleTournament = (tournamentId) => axios.get(`${baseUrl}/tournaments/${tournamentId}.json`);
 
 
-export default { getAllTournaments, getSingleTournament };
+export default { getAllTournaments, getSingleTournament, deleteTournament };

@@ -16,6 +16,13 @@ class AllTournamentsView extends React.Component {
       .catch((err) => console.error('error on get all tournaments', err));
   }
 
+  deleteATournament = (tournamentId) => {
+    tournamentData.deleteTournament(tournamentId)
+      .then(() => {
+        this.getTournaments();
+      });
+  }
+
   grassFilter = (e) => {
     e.preventDefault();
     const grassTournaments = this.state.tournaments.filter((x) => !x.isBeach);
@@ -50,7 +57,7 @@ class AllTournamentsView extends React.Component {
         <h1>All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-10">
-            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} />))}
+            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament}/>))}
           </div>
           <div className="filter-form col-2">
             <div className="form-check">
