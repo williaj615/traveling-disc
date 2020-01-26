@@ -15,6 +15,24 @@ class TournamentForm extends React.Component {
     theIsInternational: false,
   }
 
+  componentDidMount() {
+    const { tournId } = this.props.match.params;
+    if (tournId) {
+      tournamentData.getSingleTournament(tournId)
+        .then((response) => {
+          this.setState({
+            theName: response.data.name,
+            theStartDate: response.data.startDate,
+            theEndDate: response.data.endDate,
+            theBidFee: response.data.bidFee,
+            theRegLink: response.data.registrationLink,
+            theIsBeach: response.data.isBeach,
+            theIsInternational: response.data.isInternational,
+          });
+        })
+        .catch((err) => console.error('error in get single tourn', err));
+    }
+  }
 
   saveTournamentEvent = (e) => {
     const currentUser = authData.getUid();
@@ -42,6 +60,27 @@ class TournamentForm extends React.Component {
       theIsBeach: null,
       theIsInternational: null,
     });
+  }
+
+  updateTournamentEvent = (e) => {
+    e.preventDefault();
+    const currentUser = authData.getUid();
+    const { tournId } = this.props.match.params;
+    const updatedTournament = {
+      name: this.state.theName,
+      startDate: this.state.theStartDate,
+      endDate: this.state.theEndDate,
+      bidFee: this.state.theBidFee,
+      registrationLink: this.state.theRegLink,
+      isBeach: this.state.theIsBeach,
+      isInternational: this.state.theIsInternational,
+      uid: currentUser,
+    };
+    tournamentData.updateTournament(tournId, updatedTournament)
+      .then(() => {
+        this.props.history.push('/');
+      })
+      .catch((errOnUpdateTourn) => console.error('err on update tournament', errOnUpdateTourn));
   }
 
   nameChange = (e) => {
@@ -82,6 +121,7 @@ class TournamentForm extends React.Component {
   }
 
   render() {
+    const { tournId } = this.props.match.params;
     return (
       <div className="form-page col-8 text-center d-flex flex-column">
         <h1 className="mt-2">New Tournament</h1>
@@ -119,7 +159,10 @@ class TournamentForm extends React.Component {
             </label>
           </div>
         </form>
-        <button className="btn btn-info" onClick={this.saveTournamentEvent}>Save</button>
+        { tournId
+          ? <button className="btn btn-warning" onClick={this.updateTournamentEvent}>Update</button>
+          : <button className="btn btn-secondary" onClick={this.saveTournamentEvent}>Save</button>
+        }
         <Link className="btn btn-danger" to="/">Cancel</Link>
       </div>
     );
