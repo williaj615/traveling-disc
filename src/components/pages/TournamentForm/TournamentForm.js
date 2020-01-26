@@ -122,6 +122,8 @@ class TournamentForm extends React.Component {
 
   render() {
     const { tournId } = this.props.match.params;
+    const { theIsBeach } = this.state;
+    const { theIsInternational } = this.state;
     return (
       <div className="form-page col-8 text-center d-flex flex-column">
         <h1 className="mt-2">New Tournament</h1>
@@ -146,17 +148,37 @@ class TournamentForm extends React.Component {
             <label htmlFor="registration-input">Registration Link</label>
             <input type="text" className="form-control" id="registration-input" placeholder="Enter tournament registration link" value={this.state.theRegLink} onChange={this.regChange}/>
           </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange}/>
-            <label className="form-check-label" htmlFor="beach-checkbox">
-              Beach Tournament
-            </label>
+          <div className="checkbox-holder">
+          { theIsBeach
+            ? <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange} checked/>
+                <label className="form-check-label" htmlFor="beach-checkbox">
+                  Beach Tournament
+                </label>
+              </div>
+            : <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange}/>
+                <label className="form-check-label" htmlFor="beach-checkbox">
+                  Beach Tournament
+                </label>
+              </div>
+          }
           </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="intl-input" onChange={this.internationalChange}/>
-            <label className="form-check-label" htmlFor="intl-input">
-              International Tournament
-            </label>
+          <div className="checkbox-holder">
+          { theIsInternational
+            ? <div className="form-check">
+              <input className="form-check-input" type="checkbox" value="" id="intl-input" onChange={this.internationalChange} checked/>
+              <label className="form-check-label" htmlFor="intl-input">
+                International Tournament
+              </label>
+            </div>
+            : <div className="form-check">
+              <input className="form-check-input" type="checkbox" value="" id="intl-input" onChange={this.internationalChange}/>
+              <label className="form-check-label" htmlFor="intl-input">
+                International Tournament
+              </label>
+            </div>
+          }
           </div>
         </form>
         { tournId
