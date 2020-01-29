@@ -1,11 +1,17 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
 import authData from '../../../helpers/data/authData';
+import StatusForm from '../StatusForm/StatusForm';
 
 
 class Tournament extends React.Component {
+  state = {
+    modal: false,
+  }
+
   static propTypes = {
     tournament: tournamentShape.tournamentShape,
     deleteATournament: PropTypes.func,
@@ -16,6 +22,12 @@ class Tournament extends React.Component {
     const { deleteATournament, tournament } = this.props;
     deleteATournament(tournament.id);
   }
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  };
 
   currentUser = authData.getUid();
 
@@ -35,7 +47,8 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <button className="btn btn-primary">Add to My Tournaments</button>
+      <Button className="btn btn-primary" onClick={this.toggle}>Add to My Tournaments</Button>
+      <StatusForm isOpen={this.state.modal} toggle={this.toggle}/>
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
     </div>
     );
