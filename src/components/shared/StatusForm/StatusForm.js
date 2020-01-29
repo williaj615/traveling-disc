@@ -12,6 +12,7 @@ import playerData from '../../../helpers/data/playerData';
 
 class StatusForm extends React.Component {
   state = {
+    modal: false,
     newPlayerName: '',
     newPlayerUid: '',
     newPlayerTournamentId: '',
@@ -65,7 +66,7 @@ class StatusForm extends React.Component {
     return (
     <div>
     <Button>{this.props.buttonLabel}</Button>
-    <Modal isOpen={this.props.modal} toggle={this.props.toggle}>
+    <Modal isOpen={this.state.modal} toggle={this.toggle}>
       <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
       <ModalBody>
         <div className="input-group">
