@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
@@ -9,7 +8,7 @@ import StatusForm from '../StatusForm/StatusForm';
 
 class Tournament extends React.Component {
   state = {
-    modal: false,
+    buttonLabel: 'Add to My Tournaments',
   }
 
   static propTypes = {
@@ -23,17 +22,12 @@ class Tournament extends React.Component {
     deleteATournament(tournament.id);
   }
 
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal,
-    });
-  };
-
   currentUser = authData.getUid();
 
   render() {
     const { tournament } = this.props;
     return (
+      <div>
       <div className="card tournament-card col-3 m-3">
       { tournament.uid === this.currentUser
         ? (<div>
@@ -47,9 +41,12 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <Button className="btn btn-primary" onClick={this.toggle}>Add to My Tournaments</Button>
-      <StatusForm isOpen={this.state.modal} toggle={this.toggle}/>
+      <button className="btn btn-primary">Add to My Tournaments</button>
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
+    </div>
+    <div>
+    <StatusForm buttonLabel={this.state.buttonLabel} />
+    </div>
     </div>
     );
   }

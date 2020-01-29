@@ -18,10 +18,15 @@ class StatusForm extends React.Component {
     newPlayerStatus: '',
   };
 
-  static propTypes ={
-    modal: PropTypes.bool,
-    toggle: PropTypes.func,
+  static propTypes = {
+    buttonLabel: PropTypes.string,
   }
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  };
 
   savePlayerEvent = (e) => {
     const currentUser = authData.getUid();
@@ -58,7 +63,9 @@ class StatusForm extends React.Component {
   render() {
     const { tournament } = this.props;
     return (
-  <Modal isOpen={this.props.modal} toggle={this.props.toggle}>
+    <div>
+    <Button>{this.props.buttonLabel}</Button>
+    <Modal isOpen={this.props.modal} toggle={this.props.toggle}>
       <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
       <ModalBody>
         <div className="input-group">
@@ -85,7 +92,8 @@ class StatusForm extends React.Component {
         <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>{' '}
         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
       </ModalFooter>
-    </Modal>);
+    </Modal>
+    </div>);
   }
 }
 
