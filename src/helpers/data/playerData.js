@@ -22,4 +22,6 @@ const getPlayersByTournamentId = (tournamentId) => new Promise((resolve, reject)
     });
 });
 
-export default { getPlayersByTournamentId };
+const savePlayer = (newPlayer) => axios.post(`${baseUrl}/players.json`, newPlayer);
+
+export default { getPlayersByTournamentId, savePlayer };

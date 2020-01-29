@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
 import authData from '../../../helpers/data/authData';
+import StatusForm from '../StatusForm/StatusForm';
 
 
 class Tournament extends React.Component {
+  state = {
+    buttonLabel: 'Add to My Tournaments',
+  }
+
   static propTypes = {
     tournament: tournamentShape.tournamentShape,
     deleteATournament: PropTypes.func,
@@ -35,8 +40,8 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <button className="btn btn-primary">Add to My Tournaments</button>
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
+      <StatusForm buttonLabel={this.state.buttonLabel} tournament={tournament} />
     </div>
     );
   }

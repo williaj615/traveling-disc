@@ -7,6 +7,7 @@ class AllTournamentsView extends React.Component {
   state = {
     tournaments: [],
     filteredTournaments: [],
+
   }
 
   getTournaments = () => {
