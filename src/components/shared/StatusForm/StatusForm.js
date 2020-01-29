@@ -13,7 +13,6 @@ import tournamentShape from '../../../helpers/propz/tournamentShape';
 
 class StatusForm extends React.Component {
   state = {
-    modal: false,
     newPlayerName: '',
     newPlayerUid: '',
     newPlayerTournamentId: '',
@@ -32,11 +31,12 @@ class StatusForm extends React.Component {
   };
 
   savePlayerEvent = (e) => {
+    const { tournament } = this.props;
     const currentUser = authData.getUid();
     const newPlayer = {
       name: this.state.newPlayerName,
       uid: currentUser,
-      tournamentId: this.state.newPlayerTournamentId,
+      tournamentId: tournament.id,
       status: this.state.newPlayerStatus,
     };
     playerData.savePlayer(newPlayer)
@@ -58,16 +58,31 @@ class StatusForm extends React.Component {
     this.setState({ newPlayerName: e.target.value });
   }
 
-  statusChange = (e) => {
-
+  goingtatusChange = (e) => {
+    e.preventDefault();
+    if (this.state.newPlayerStatus === 'wishlist' || '') {
+      this.setState({ newPlayerStatus: 'going' });
+    } else if (this.state.newPlayerStatus === 'going') {
+      this.setState({ newPlayerStatus: 'wishlist' });
+    } else {
+      console.error('no valid status change');
+    }
   };
+
+  goingStatusChange = (e) => {
+    this.setState({ newPlayerStatus: 'going' })
+  }
+
+  wishlistStatusChange = (e) => {
+    this.setState({ newPlayerStatus: 'wishlist' })
+  }
 
 
   render() {
-    const { tournament } = this.props;
+    const { tournament, buttonLabel } = this.props;
     return (
     <div>
-    <Button>{this.props.buttonLabel}</Button>
+    <Button onClick={this.toggle}>{buttonLabel}</Button>
     <Modal isOpen={this.state.modal} toggle={this.toggle}>
       <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
       <ModalBody>
@@ -79,14 +94,14 @@ class StatusForm extends React.Component {
         </div>
 
         <div className="form-check">
-          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked/>
-          <label className="form-check-label" for="exampleRadios1">
+          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" onChange={this.goingStatusChange} checked={this.state.newPlayerStatus === 'going'}/>
+          <label className="form-check-label" htmlFor="exampleRadios1">
             I am going to this tournament!
           </label>
         </div>
         <div className="form-check">
-          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"/>
-          <label className="form-check-label" for="exampleRadios2">
+          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.wishlistStatusChange} checked={this.state.newPlayerStatus === 'wishlist'}/>
+          <label className="form-check-label" htmlFor="exampleRadios2">
             I would like to go to this tournament!
           </label>
         </div>
@@ -100,4 +115,4 @@ class StatusForm extends React.Component {
   }
 }
 
-export default { StatusForm };
+export default StatusForm;

@@ -27,7 +27,6 @@ class Tournament extends React.Component {
   render() {
     const { tournament } = this.props;
     return (
-      <div>
       <div className="card tournament-card col-3 m-3">
       { tournament.uid === this.currentUser
         ? (<div>
@@ -41,12 +40,8 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <button className="btn btn-primary">Add to My Tournaments</button>
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
-    </div>
-    <div>
-    <StatusForm buttonLabel={this.state.buttonLabel} tournament={tournament} />
-    </div>
+      <StatusForm buttonLabel={this.state.buttonLabel} tournament={tournament} />
     </div>
     );
   }
