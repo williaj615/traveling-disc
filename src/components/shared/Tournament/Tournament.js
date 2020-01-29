@@ -45,7 +45,7 @@ class Tournament extends React.Component {
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
     </div>
     <div>
-    <StatusForm buttonLabel={this.state.buttonLabel} />
+    <StatusForm buttonLabel={this.state.buttonLabel} tournament={tournament} />
     </div>
     </div>
     );

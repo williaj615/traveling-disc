@@ -9,6 +9,7 @@ import {
 import PropTypes from 'prop-types';
 import authData from '../../../helpers/data/authData';
 import playerData from '../../../helpers/data/playerData';
+import tournamentShape from '../../../helpers/propz/tournamentShape';
 
 class StatusForm extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class StatusForm extends React.Component {
 
   static propTypes = {
     buttonLabel: PropTypes.string,
+    tournament: tournamentShape.tournamentShape,
   }
 
   toggle = () => {
