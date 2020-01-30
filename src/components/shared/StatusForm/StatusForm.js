@@ -58,25 +58,24 @@ class StatusForm extends React.Component {
     this.setState({ newPlayerName: e.target.value });
   }
 
-  goingtatusChange = (e) => {
-    e.preventDefault();
-    if (this.state.newPlayerStatus === 'wishlist' || '') {
-      this.setState({ newPlayerStatus: 'going' });
-    } else if (this.state.newPlayerStatus === 'going') {
-      this.setState({ newPlayerStatus: 'wishlist' });
-    } else {
-      console.error('no valid status change');
-    }
-  };
+  // goingtatusChange = (e) => {
+  //   e.preventDefault();
+  //   if (this.state.newPlayerStatus === 'wishlist' || '') {
+  //     this.setState({ newPlayerStatus: 'going' });
+  //   } else if (this.state.newPlayerStatus === 'going') {
+  //     this.setState({ newPlayerStatus: 'wishlist' });
+  //   } else {
+  //     console.error('no valid status change');
+  //   }
+  // };
 
   goingStatusChange = (e) => {
-    this.setState({ newPlayerStatus: 'going' })
+    this.setState({ newPlayerStatus: 'going' });
   }
 
   wishlistStatusChange = (e) => {
-    this.setState({ newPlayerStatus: 'wishlist' })
+    this.setState({ newPlayerStatus: 'wishlist' });
   }
-
 
   render() {
     const { tournament, buttonLabel } = this.props;
