@@ -2,57 +2,48 @@ import React from 'react';
 import playerData from '../../../helpers/data/playerData';
 import tournamentData from '../../../helpers/data/tournamentData';
 import authData from '../../../helpers/data/authData';
+import Tournament from '../../shared/Tournament/Tournament';
 
 class MyTournamentsView extends React.Component {
   state = {
-    // myPlayers: [],
     myTournamentIds: [],
-
+    myTournaments: [],
   }
-
-  // get all players
-  // filter players for those with uid equal to the current user
-  // get all the tournament ids of those players (myTournamentIds)
-  // get all Tournaments
-  // filter for the ones that match (myTournamentIds)
 
   getMyTournaments = () => {
     const currentUser = authData.getUid();
     playerData.getAllPlayers()
       .then((players) => {
         const myPlayerObjects = players.filter((x) => x.uid === currentUser);
-        // this.setState({ myPlayers: myPlayerObjects });
+        const tournamentIds = [];
         Object.keys(myPlayerObjects).forEach((playerId) => {
           const playerObject = myPlayerObjects[playerId];
           const playerTournId = playerObject.tournamentId;
-          this.state.myTournamentIds.push(playerTournId);
+          tournamentIds.push(playerTournId);
         });
+        this.setState({ myTournamentIds: tournamentIds });
         console.log(this.state.myTournamentIds);
+        tournamentData.getAllTournaments()
+          .then((tournaments) => {
+            const filteredTourneys = tournaments.filter((x) => tournamentIds.includes(x.id));
+            this.setState({ myTournaments: filteredTourneys });
+            console.log(filteredTourneys);
+          })
+          .catch((err) => console.error('err on getting personal tourns', err));
       })
       .catch((err) => console.error('err on get my players', err));
-    // tournamentData.getAllTournaments()
-    // .then((tournaments) => )
   }
-
-  // getMyTournaments = (uid) => {
-  //   const currentUser = authData.getUid();
-  //   playerData.getPlayersByUid(currentUser)
-  //     .then((players) => Object.keys(players).forEach((playerId) => {
-  //       const tournamentPlayer = players[playerId];
-  //       this.setState({ tournamentId: tournamentPlayer.tournamentId });
-  //       this.state.myTournamentIds.push(this.state.tournamentId);
-  //     }));
-  //   console.log(this.state.myTournamentIds);
-
-  // }
 
   componentDidMount() {
     this.getMyTournaments();
   }
 
   render() {
+    const { myTournaments } = this.state;
     return (
-      <div>Viewing Your Personal Tournaments!</div>
+      <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-10">
+        {myTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament}/>))}
+      </div>
     );
   }
 }
