@@ -1,5 +1,6 @@
 import React from 'react';
 import Tournament from '../../shared/Tournament/Tournament';
+import playerData from '../../../helpers/data/playerData';
 import Smash from '../../../helpers/data/smash';
 
 class MyTournamentsView extends React.Component {
@@ -16,6 +17,14 @@ class MyTournamentsView extends React.Component {
       .catch((err) => console.error('err on get my wishlist tourneys', err));
   }
 
+  updateAPlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        this.toggle();
+      })
+      .catch((errOnUpdatePlayer) => console.error('err on update player', errOnUpdatePlayer));
+  }
+
   componentDidMount() {
     this.getMyTournaments();
   }
@@ -25,10 +34,10 @@ class MyTournamentsView extends React.Component {
     return (
     <div>
       <div className="going-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true}/>))}
+        {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} updateAPlayer={this.updateAPlayer}/>))}
       </div>
       <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId}/>))}
+        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId} updateAPlayer={this.updateAPlayer}/>))}
       </div>
     </div>
     );

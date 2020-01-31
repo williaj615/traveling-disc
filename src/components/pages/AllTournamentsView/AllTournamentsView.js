@@ -2,12 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import tournamentData from '../../../helpers/data/tournamentData';
 import Tournament from '../../shared/Tournament/Tournament';
+import playerData from '../../../helpers/data/playerData';
 
 class AllTournamentsView extends React.Component {
   state = {
     tournaments: [],
     filteredTournaments: [],
 
+  }
+
+  saveAPlayer = (newPlayer) => {
+    playerData.savePlayer(newPlayer)
+      .then(() => {
+        this.toggle();
+      })
+      .catch((errOnSavePlayer) => console.error('err on save tournament', errOnSavePlayer));
+    this.setState({
+      modal: false,
+      newPlayerName: '',
+      newPlayerUid: '',
+      newPlayerTournamentId: '',
+      newPlayerStatus: '',
+    });
   }
 
   getTournaments = () => {
@@ -55,12 +71,13 @@ class AllTournamentsView extends React.Component {
   }
 
   render() {
+    const { updateAPlayer } = this.props;
     return (
       <div className="page-container">
         <h1>All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-10">
-            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament}/>))}
+            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} saveAPlayer={this.saveAPlayer} updateAPlayer={updateAPlayer}/>))}
           </div>
           <div className="filter-form col-2">
             <Link className="btn btn-light mb-4" to="/tourn/new">Add a tournament for your team!</Link>

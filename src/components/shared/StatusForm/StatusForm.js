@@ -8,7 +8,6 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import authData from '../../../helpers/data/authData';
-import playerData from '../../../helpers/data/playerData';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
 
 class StatusForm extends React.Component {
@@ -24,6 +23,8 @@ class StatusForm extends React.Component {
     buttonLabel2: PropTypes.string,
     tournament: tournamentShape.tournamentShape,
     isPersonalTournament: PropTypes.bool,
+    updateAPlayer: PropTypes.func,
+    saveAPlayer: PropTypes.func,
   }
 
   toggle = () => {
@@ -33,7 +34,7 @@ class StatusForm extends React.Component {
   };
 
   savePlayerEvent = (e) => {
-    const { tournament } = this.props;
+    const { tournament, saveAPlayer } = this.props;
     const currentUser = authData.getUid();
     const newPlayer = {
       name: this.state.newPlayerName,
@@ -41,36 +42,22 @@ class StatusForm extends React.Component {
       tournamentId: tournament.id,
       status: this.state.newPlayerStatus,
     };
-    playerData.savePlayer(newPlayer)
-      .then(() => {
-        this.props.history.push('/');
-      })
-      .catch((errOnSavePlayer) => console.error('err on save tournament', errOnSavePlayer));
-    this.setState({
-      modal: false,
-      newPlayerName: '',
-      newPlayerUid: '',
-      newPlayerTournamentId: '',
-      newPlayerStatus: '',
-    });
+    saveAPlayer(newPlayer);
+    this.toggle();
   }
 
   updatePlayerEvent = (e) => {
-    e.preventDefault();
-    const { tournament } = this.props;
+    const { tournament, updateAPlayer } = this.props;
     const currentUser = authData.getUid();
-    const { playerId } = this.props;
+    const playerId = this.props.player.id;
     const updatedPlayer = {
       name: this.state.newPlayerName,
       uid: currentUser,
       tournamentId: tournament.id,
       status: this.state.newPlayerStatus,
     };
-    playerData.updatePlayer(playerId, updatedPlayer)
-      .then(() => {
-        this.props.history.push('/personal');
-      })
-      .catch((errOnUpdatePlayer) => console.error('err on update player', errOnUpdatePlayer));
+    updateAPlayer(playerId, updatedPlayer);
+    this.toggle();
   }
 
   componentDidUpdate(prevProps) {
@@ -91,17 +78,6 @@ class StatusForm extends React.Component {
     this.setState({ newPlayerName: e.target.value });
   }
 
-  // goingtatusChange = (e) => {
-  //   e.preventDefault();
-  //   if (this.state.newPlayerStatus === 'wishlist' || '') {
-  //     this.setState({ newPlayerStatus: 'going' });
-  //   } else if (this.state.newPlayerStatus === 'going') {
-  //     this.setState({ newPlayerStatus: 'wishlist' });
-  //   } else {
-  //     console.error('no valid status change');
-  //   }
-  // };
-
   goingStatusChange = (e) => {
     this.setState({ newPlayerStatus: 'going' });
   }
@@ -117,6 +93,7 @@ class StatusForm extends React.Component {
       buttonLabel2,
       isPersonalTournament,
       player,
+
     } = this.props;
     return (
     <div>
@@ -147,7 +124,10 @@ class StatusForm extends React.Component {
       </ModalBody>
       <ModalFooter>
         <Button color="danger">Take this tournament off of my list.</Button>
-        <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>{' '}
+        { !player
+          ? <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>
+          : <Button color="warning" onClick={this.updatePlayerEvent}>Update</Button>
+        }
         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>

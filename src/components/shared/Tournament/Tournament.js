@@ -18,7 +18,8 @@ class Tournament extends React.Component {
     tournament: tournamentShape.tournamentShape,
     deleteATournament: PropTypes.func,
     isPersonalTournament: PropTypes.bool,
-    playerId: PropTypes.string,
+    updateAPlayer: PropTypes.func,
+    saveAPlayer: PropTypes.func,
   }
 
   currentUser = authData.getUid();
@@ -36,7 +37,12 @@ class Tournament extends React.Component {
   }
 
   render() {
-    const { tournament, isPersonalTournament } = this.props;
+    const {
+      tournament,
+      isPersonalTournament,
+      updateAPlayer,
+      saveAPlayer,
+    } = this.props;
     const { player } = this.state;
     return (
       <div className="card tournament-card col-3 m-3">
@@ -53,7 +59,7 @@ class Tournament extends React.Component {
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
       <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
-      <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} player={player}/>
+      <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} player={player} updateAPlayer={updateAPlayer} saveAPlayer={saveAPlayer}/>
     </div>
     );
   }
