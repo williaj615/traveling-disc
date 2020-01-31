@@ -28,7 +28,7 @@ class MyTournamentsView extends React.Component {
         {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true}/>))}
       </div>
       <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true}/>))}
+        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId}/>))}
       </div>
     </div>
     );

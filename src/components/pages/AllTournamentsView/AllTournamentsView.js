@@ -52,7 +52,6 @@ class AllTournamentsView extends React.Component {
 
   componentDidMount() {
     this.getTournaments();
-
   }
 
   render() {

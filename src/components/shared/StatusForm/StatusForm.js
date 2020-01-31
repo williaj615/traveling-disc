@@ -55,6 +55,37 @@ class StatusForm extends React.Component {
     });
   }
 
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { tournament } = this.props;
+    const currentUser = authData.getUid();
+    const { playerId } = this.props;
+    const updatedPlayer = {
+      name: this.state.newPlayerName,
+      uid: currentUser,
+      tournamentId: tournament.id,
+      status: this.state.newPlayerStatus,
+    };
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        this.props.history.push('/personal');
+      })
+      .catch((errOnUpdatePlayer) => console.error('err on update player', errOnUpdatePlayer));
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.player !== this.props.player && this.props.player) {
+      const { player } = this.props;
+      console.log('player', player);
+      this.setState({
+        newPlayerName: player.name,
+        newPlayerUid: player.uid,
+        newPlayerTournamentId: player.tournamentId,
+        newPlayerStatus: player.status,
+      });
+    }
+  }
+
   nameChange = (e) => {
     e.preventDefault();
     this.setState({ newPlayerName: e.target.value });
@@ -85,6 +116,7 @@ class StatusForm extends React.Component {
       buttonLabel,
       buttonLabel2,
       isPersonalTournament,
+      player,
     } = this.props;
     return (
     <div>
@@ -97,7 +129,7 @@ class StatusForm extends React.Component {
           <div className="input-group-prepend">
             <span className="input-group-text" id="">First and last name</span>
           </div>
-          <input type="text" className="form-control" onChange={this.nameChange}/>
+          <input value={this.state.newPlayerName} type="text" className="form-control" onChange={this.nameChange}/>
         </div>
 
         <div className="form-check">
