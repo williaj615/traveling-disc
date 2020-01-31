@@ -18,6 +18,7 @@ class AllTournamentsView extends React.Component {
       .catch((err) => console.error('error on get all tournaments', err));
   }
 
+
   deleteATournament = (tournamentId) => {
     tournamentData.deleteTournament(tournamentId)
       .then(() => {
@@ -51,6 +52,7 @@ class AllTournamentsView extends React.Component {
 
   componentDidMount() {
     this.getTournaments();
+
   }
 
   render() {

@@ -24,10 +24,10 @@ class MyTournamentsView extends React.Component {
     const { myGoingTournaments, myWishlistTournaments } = this.state;
     return (
     <div>
-      <div className="going-tournaments-container d-flex flex-row flex-wrap justify-content-around col-4">
+      <div className="going-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
         {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true}/>))}
       </div>
-      <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-4">
+      <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
         {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true}/>))}
       </div>
     </div>

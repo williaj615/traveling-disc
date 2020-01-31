@@ -114,6 +114,7 @@ class StatusForm extends React.Component {
         </div>
       </ModalBody>
       <ModalFooter>
+        <Button color="danger">Take this tournament off of my list.</Button>
         <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>{' '}
         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
       </ModalFooter>

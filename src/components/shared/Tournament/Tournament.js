@@ -42,7 +42,7 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
+      <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
       <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} />
     </div>
     );
