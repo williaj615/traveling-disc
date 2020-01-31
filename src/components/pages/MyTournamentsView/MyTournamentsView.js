@@ -18,11 +18,11 @@ class MyTournamentsView extends React.Component {
   }
 
   updateAPlayer = (playerId, updatedPlayer) => {
-    playerData.updatePlayer(playerId, updatedPlayer)
-      .then(() => {
-        this.toggle();
-      })
-      .catch((errOnUpdatePlayer) => console.error('err on update player', errOnUpdatePlayer));
+    playerData.updatePlayer(playerId, updatedPlayer);
+  }
+
+  deleteAPlayer = (playerId) => {
+    playerData.deletePlayer(playerId);
   }
 
   componentDidMount() {
@@ -34,10 +34,10 @@ class MyTournamentsView extends React.Component {
     return (
     <div>
       <div className="going-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} updateAPlayer={this.updateAPlayer}/>))}
+        {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} updateAPlayer={this.updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))}
       </div>
       <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId} updateAPlayer={this.updateAPlayer}/>))}
+        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId} updateAPlayer={this.updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))}
       </div>
     </div>
     );
