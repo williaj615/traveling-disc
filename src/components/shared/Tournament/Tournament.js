@@ -9,11 +9,13 @@ import StatusForm from '../StatusForm/StatusForm';
 class Tournament extends React.Component {
   state = {
     buttonLabel: 'Add to My Tournaments',
+    buttonLabel2: 'Update My Attendance',
   }
 
   static propTypes = {
     tournament: tournamentShape.tournamentShape,
     deleteATournament: PropTypes.func,
+    isPersonalTournament: PropTypes.bool,
   }
 
   deleteTournamentEvent = (e) => {
@@ -25,7 +27,7 @@ class Tournament extends React.Component {
   currentUser = authData.getUid();
 
   render() {
-    const { tournament } = this.props;
+    const { tournament, isPersonalTournament } = this.props;
     return (
       <div className="card tournament-card col-3 m-3">
       { tournament.uid === this.currentUser
@@ -40,8 +42,8 @@ class Tournament extends React.Component {
       <p>{tournament.endDate}</p>
       <p>{tournament.bidFee}</p>
       <p>{tournament.registrationLink}</p>
-      <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View</Link>
-      <StatusForm buttonLabel={this.state.buttonLabel} tournament={tournament} />
+      <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
+      <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} />
     </div>
     );
   }
