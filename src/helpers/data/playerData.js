@@ -41,6 +41,14 @@ const getPlayersByUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
+const getMyPlayerByTournamentId = (uid, tournamentId) => new Promise((resolve, reject) => {
+  getPlayersByUid(uid)
+    .then((players) => resolve(players.find((x) => x.tournamentId === tournamentId)))
+    .catch((err) => reject(err));
+});
+
+const getSinglePlayer = (playerId) => axios.get(`${baseUrl}/players/${playerId}.json`);
+
 const savePlayer = (newPlayer) => axios.post(`${baseUrl}/players.json`, newPlayer);
 
 const updatePlayer = (playerId, updatedPlayer) => axios.put(`${baseUrl}/players/${playerId}.json`, updatedPlayer);
@@ -50,4 +58,6 @@ export default {
   savePlayer,
   updatePlayer,
   getPlayersByUid,
+  getSinglePlayer,
+  getMyPlayerByTournamentId,
 };
