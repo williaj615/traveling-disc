@@ -21,7 +21,9 @@ class StatusForm extends React.Component {
 
   static propTypes = {
     buttonLabel: PropTypes.string,
+    buttonLabel2: PropTypes.string,
     tournament: tournamentShape.tournamentShape,
+    isPersonalTournament: PropTypes.bool,
   }
 
   toggle = () => {
@@ -78,10 +80,16 @@ class StatusForm extends React.Component {
   }
 
   render() {
-    const { tournament, buttonLabel } = this.props;
+    const {
+      tournament,
+      buttonLabel,
+      buttonLabel2,
+      isPersonalTournament,
+    } = this.props;
     return (
     <div>
-    <Button onClick={this.toggle}>{buttonLabel}</Button>
+    {isPersonalTournament ? <Button onClick={this.toggle}>{buttonLabel2}</Button>
+      : <Button onClick={this.toggle}>{buttonLabel}</Button>}
     <Modal isOpen={this.state.modal} toggle={this.toggle}>
       <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
       <ModalBody>

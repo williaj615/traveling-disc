@@ -22,8 +22,8 @@ const getPlayersByTournamentId = (tournamentId) => new Promise((resolve, reject)
     });
 });
 
-const getAllPlayers = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/players.json`)
+const getPlayersByUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/players.json?orderBy="uid"&equalTo="${uid}"`)
     .then((result) => {
       const allPlayersObj = result.data;
       const players = [];
@@ -49,5 +49,5 @@ export default {
   getPlayersByTournamentId,
   savePlayer,
   updatePlayer,
-  getAllPlayers,
+  getPlayersByUid,
 };
