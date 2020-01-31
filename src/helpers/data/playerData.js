@@ -49,6 +49,8 @@ const getMyPlayerByTournamentId = (uid, tournamentId) => new Promise((resolve, r
 
 const getSinglePlayer = (playerId) => axios.get(`${baseUrl}/players/${playerId}.json`);
 
+const deletePlayer = (playerId) => axios.delete(`${baseUrl}/players/${playerId}.json`);
+
 const savePlayer = (newPlayer) => axios.post(`${baseUrl}/players.json`, newPlayer);
 
 const updatePlayer = (playerId, updatedPlayer) => axios.put(`${baseUrl}/players/${playerId}.json`, updatedPlayer);
@@ -60,4 +62,5 @@ export default {
   getPlayersByUid,
   getSinglePlayer,
   getMyPlayerByTournamentId,
+  deletePlayer,
 };

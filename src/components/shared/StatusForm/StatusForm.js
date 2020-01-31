@@ -60,10 +60,16 @@ class StatusForm extends React.Component {
     this.toggle();
   }
 
+  deletePlayerEvent = (e) => {
+    const { tournament, deleteAPlayer } = this.props;
+    const playerId = this.props.player.id;
+    deleteAPlayer(playerId);
+    this.toggle();
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.player !== this.props.player && this.props.player) {
       const { player } = this.props;
-      console.log('player', player);
       this.setState({
         newPlayerName: player.name,
         newPlayerUid: player.uid,
@@ -123,7 +129,7 @@ class StatusForm extends React.Component {
         </div>
       </ModalBody>
       <ModalFooter>
-        <Button color="danger">Take this tournament off of my list.</Button>
+        <Button color="danger" onClick={this.deletePlayerEvent}>Take this tournament off of my list.</Button>
         { !player
           ? <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>
           : <Button color="warning" onClick={this.updatePlayerEvent}>Update</Button>
