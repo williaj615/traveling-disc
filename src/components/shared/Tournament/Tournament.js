@@ -50,7 +50,7 @@ class Tournament extends React.Component {
     } = this.props;
     const { player } = this.state;
     return (
-      <div className="card tournament-card d-flex text-center col-3 m-2">
+      <div className="box tournament-card d-flex text-center col-3 m-2">
       { tournament.uid === this.currentUser
         ? (
           <div className="card-header">
@@ -65,11 +65,8 @@ class Tournament extends React.Component {
         : (<h3 className="mt-4">{tournament.name}</h3>)
       }
       <div className="card-body">
-        <p>{tournament.startDate}</p>
-        <p>{tournament.endDate}</p>
-        <p>{tournament.bidFee}</p>
-        <p>{tournament.registrationLink}</p>
-        <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
+        <p>{tournament.startDate} - {tournament.endDate}</p>
+        <Link className="btn view-tournament-button" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
         <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} player={player} updateAPlayer={updateAPlayer} saveAPlayer={saveAPlayer} deleteAPlayer={deleteAPlayer}/>
       </div>
     </div>

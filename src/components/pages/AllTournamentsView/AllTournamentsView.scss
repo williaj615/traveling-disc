@@ -12,13 +12,13 @@
   font-weight: 900;
 }
 
-.all-page-container .card {
+.all-page-container .box {
   background-color: transparentize($color: #2F4454, $amount: 0.4);
   border-style: none;
   width: 33%;
 
 }
-.all-page-container .card h3 {
+.all-page-container .box h3 {
   font-family: 'Lato',sans-serif;
   font-weight: 700;
   color: white;

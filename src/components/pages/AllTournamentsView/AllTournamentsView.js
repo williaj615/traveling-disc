@@ -75,7 +75,7 @@ class AllTournamentsView extends React.Component {
     const { updateAPlayer } = this.props;
     return (
       <div className="all-page-container">
-        <h1>All Tournaments</h1>
+        <h1 className="mb-4">All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-9">
             {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} saveAPlayer={this.saveAPlayer} updateAPlayer={updateAPlayer}/>))}

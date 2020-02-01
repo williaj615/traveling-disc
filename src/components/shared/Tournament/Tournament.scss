@@ -1,2 +1,7 @@
 @import '../../../styles//variables';
 
+.view-tournament-button {
+  background-color: transparentize($color: #000000, $amount: 1);
+  border-style: none;
+  color:white;
+}

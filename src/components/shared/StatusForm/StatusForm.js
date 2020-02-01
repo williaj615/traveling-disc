@@ -9,6 +9,7 @@ import {
 import PropTypes from 'prop-types';
 import authData from '../../../helpers/data/authData';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
+import './StatusForm.scss';
 
 class StatusForm extends React.Component {
   state = {
@@ -103,8 +104,8 @@ class StatusForm extends React.Component {
     } = this.props;
     return (
     <div>
-    {isPersonalTournament ? <Button onClick={this.toggle}>{buttonLabel2}</Button>
-      : <Button onClick={this.toggle}>{buttonLabel}</Button>}
+    {isPersonalTournament ? <Button className="update-form-toggle-button" onClick={this.toggle}>{buttonLabel2}</Button>
+      : <Button className="new-form-toggle-button" onClick={this.toggle}>{buttonLabel}</Button>}
     <Modal isOpen={this.state.modal} toggle={this.toggle}>
       <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
       <ModalBody>
@@ -131,8 +132,8 @@ class StatusForm extends React.Component {
       <ModalFooter>
         <Button color="danger" onClick={this.deletePlayerEvent}>Take this tournament off of my list.</Button>
         { !player
-          ? <Button color="primary" onClick={this.savePlayerEvent}>Save</Button>
-          : <Button color="warning" onClick={this.updatePlayerEvent}>Update</Button>
+          ? <Button color="none" onClick={this.savePlayerEvent}>Save</Button>
+          : <Button color="none" onClick={this.updatePlayerEvent}>Update</Button>
         }
         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
       </ModalFooter>
