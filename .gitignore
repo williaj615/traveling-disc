@@ -25,4 +25,4 @@ yarn-error.log*
 package-lock.json
 src/helpers/apiKeys.json
 
-./firebase
+.firebase/
