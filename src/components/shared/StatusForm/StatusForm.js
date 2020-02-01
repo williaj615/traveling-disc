@@ -61,7 +61,7 @@ class StatusForm extends React.Component {
   }
 
   deletePlayerEvent = (e) => {
-    const { tournament, deleteAPlayer } = this.props;
+    const { deleteAPlayer } = this.props;
     const playerId = this.props.player.id;
     deleteAPlayer(playerId);
     this.toggle();

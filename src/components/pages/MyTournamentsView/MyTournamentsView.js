@@ -2,6 +2,7 @@ import React from 'react';
 import Tournament from '../../shared/Tournament/Tournament';
 import playerData from '../../../helpers/data/playerData';
 import Smash from '../../../helpers/data/smash';
+import './MyTournamentsView.scss';
 
 class MyTournamentsView extends React.Component {
   state = {

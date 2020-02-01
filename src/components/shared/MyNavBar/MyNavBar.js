@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import './MyNavBar.scss';
 
 class MyNavbar extends React.Component {
   static propTypes = {
@@ -16,11 +17,10 @@ class MyNavbar extends React.Component {
 
   render() {
     const { authed } = this.props;
-    const tournId = '8910';
 
     return (
       <div className="MyNavbar">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg">
         <span className="navbar-brand" href="#">Traveling Disc Trip Planner</span>
         <button className="navbar-toggler" type="button"
           data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,6 @@ class MyNavbar extends React.Component {
           </div>
         </div>
       </nav>
-      <Link to={`/tourn/${tournId}`}></Link>
     </div>
     );
   }
