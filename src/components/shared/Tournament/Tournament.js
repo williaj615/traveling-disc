@@ -50,7 +50,7 @@ class Tournament extends React.Component {
     } = this.props;
     const { player } = this.state;
     return (
-      <div className="box tournament-card d-flex text-center col-3 m-2">
+      <div className="card tournament-card d-flex text-center col-3 m-2">
       { tournament.uid === this.currentUser
         ? (
           <div className="card-header">

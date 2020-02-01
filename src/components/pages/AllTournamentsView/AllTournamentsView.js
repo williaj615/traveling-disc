@@ -44,25 +44,21 @@ class AllTournamentsView extends React.Component {
   }
 
   grassFilter = (e) => {
-    e.preventDefault();
     const grassTournaments = this.state.tournaments.filter((x) => !x.isBeach);
     this.setState({ filteredTournaments: grassTournaments });
   }
 
   beachFilter = (e) => {
-    e.preventDefault();
     const beachTournaments = this.state.tournaments.filter((x) => x.isBeach);
     this.setState({ filteredTournaments: beachTournaments });
   }
 
   usFilter = (e) => {
-    e.preventDefault();
     const usTournaments = this.state.tournaments.filter((x) => !x.isInternational);
     this.setState({ filteredTournaments: usTournaments });
   }
 
   internationalFilter = (e) => {
-    e.preventDefault();
     const internationalTournaments = this.state.tournaments.filter((x) => x.isInternational);
     this.setState({ filteredTournaments: internationalTournaments });
   }
