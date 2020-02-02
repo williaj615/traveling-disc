@@ -59,10 +59,10 @@ class Tournament extends React.Component {
               <Link className="edit-button btn mr-0 ml-3 mt-0 p-0" to={`/tourn/${tournament.id}/edit`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
             </div>
             <div className="d-flex flex-column text-center">
-              <h3 className="mt-0">{tournament.name}</h3>
+              <h2 className="mt-0">{tournament.name}</h2>
             </div>
           </div>)
-        : (<h3 className="mt-4">{tournament.name}</h3>)
+        : (<h2 className="mt-4">{tournament.name}</h2>)
       }
       <div className="card-body">
         <p>{tournament.startDate} - {tournament.endDate}</p>

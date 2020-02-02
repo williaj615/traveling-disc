@@ -71,14 +71,14 @@ class AllTournamentsView extends React.Component {
     const { updateAPlayer } = this.props;
     return (
       <div className="all-page-container">
-        <h1 className="mb-4">All Tournaments</h1>
+        <h1 className="mb-4 pt-3">All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-9">
             {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} saveAPlayer={this.saveAPlayer} updateAPlayer={updateAPlayer}/>))}
           </div>
           <div className="filter-form col-3 mt-3">
             <div className="second-component-holder">
-            <Link className="btn btn-light mb-4" to="/tourn/new">Add a tournament for your team!</Link>
+            <Link className="btn btn-light mb-4 new-tourn-button" to="/tourn/new">Add a tournament for your team!</Link>
             <div className="form-check mt-2 mb-2">
               <input className="form-check-input" type="radio" name="exampleRadios" id="grassRadios" value="option1" onChange={this.grassFilter}></input>
               <label className="form-check-label" htmlFor="grassRadios">

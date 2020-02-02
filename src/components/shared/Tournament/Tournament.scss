@@ -1,7 +1,8 @@
 @import '../../../styles//variables';
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto|Shadows+Into+Light|Source+Sans+Pro&display=swap');
 
 .view-tournament-button {
   background-color: transparentize($color: #000000, $amount: 1);
   border-style: none;
-  color:white;
+  color: transparentize($color: #ffd700, $amount: 0.4);
 }
