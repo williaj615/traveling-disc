@@ -125,40 +125,40 @@ class TournamentForm extends React.Component {
     const { theIsBeach } = this.state;
     const { theIsInternational } = this.state;
     return (
-      <div className="form-page col-8 text-center d-flex flex-column">
-        <h1 className="mt-2">New Tournament</h1>
-        <form className="">
+      <div className="form-page text-center d-flex flex-column ">
+        <h1 className="mt-2">Tournament Details</h1>
+        <form className="mr-auto ml-auto">
           <div className="form-group">
-            <label htmlFor="name-input">Name</label>
+            <label htmlFor="name-input"><h4>Name</h4></label>
             <input type="text" className="form-control" id="name-input" placeholder="Enter tournament name" value={this.state.theName} onChange={this.nameChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="start-input">Start Date</label>
+            <label htmlFor="start-input"><h4>Start Date</h4></label>
             <input type="text" className="form-control" id="start-input" placeholder="Enter tournament Start Date" value={this.state.theStartDate} onChange={this.startChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="end-input">End Date</label>
+            <label htmlFor="end-input"><h4>End Date</h4></label>
             <input type="text" className="form-control" id="end-input" placeholder="Enter tournament End Date" value={this.state.theEndDate} onChange={this.endChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="bid-fee-input">Bid Fee</label>
+            <label htmlFor="bid-fee-input"><h4>Bid Fee</h4></label>
             <input type="text" className="form-control" id="bid-fee-input" placeholder="Enter tournament bid fee" value={this.state.theBidFee} onChange={this.bidChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="registration-input">Registration Link</label>
+            <label htmlFor="registration-input"><h4>Registration Link</h4></label>
             <input type="text" className="form-control" id="registration-input" placeholder="Enter tournament registration link" value={this.state.theRegLink} onChange={this.regChange}/>
           </div>
           <div className="checkbox-holder">
           { theIsBeach
             ? <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange} checked/>
-                <label className="form-check-label" htmlFor="beach-checkbox">
+                <label className="form-check-label1" htmlFor="beach-checkbox">
                   Beach Tournament
                 </label>
               </div>
             : <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="beach-checkbox" onChange={this.beachChange}/>
-                <label className="form-check-label" htmlFor="beach-checkbox">
+                <label className="form-check-label1" htmlFor="beach-checkbox">
                   Beach Tournament
                 </label>
               </div>
@@ -168,13 +168,13 @@ class TournamentForm extends React.Component {
           { theIsInternational
             ? <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="intl-input" onChange={this.internationalChange} checked/>
-              <label className="form-check-label" htmlFor="intl-input">
+              <label className="form-check-label2" htmlFor="intl-input">
                 International Tournament
               </label>
             </div>
             : <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="intl-input" onChange={this.internationalChange}/>
-              <label className="form-check-label" htmlFor="intl-input">
+              <label className="form-check-label2" htmlFor="intl-input">
                 International Tournament
               </label>
             </div>
@@ -182,10 +182,10 @@ class TournamentForm extends React.Component {
           </div>
         </form>
         { tournId
-          ? <button className="btn btn-warning" onClick={this.updateTournamentEvent}>Update</button>
-          : <button className="btn btn-secondary" onClick={this.saveTournamentEvent}>Save</button>
+          ? <button className="btn tourn-update-button ml-auto mr-auto mt-1 mb-1" onClick={this.updateTournamentEvent}>Update</button>
+          : <button className="btn tourn-save-button ml-auto mr-auto mt-1 mb-1" onClick={this.saveTournamentEvent}>Save</button>
         }
-        <Link className="btn btn-danger" to="/">Cancel</Link>
+        <Link className="btn btn-secondary tourn-cancelnew-button ml-auto mr-auto mt-1 mb-1" to="/">Cancel</Link>
       </div>
     );
   }

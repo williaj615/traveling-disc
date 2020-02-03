@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto|Shadows+Into+Light|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap');
+
+@import '../../../styles/variables';
+
+.all-page-container {
+  background-image: url(../../../project-images/tim-marshall-vWKbNUNzc1s-unsplash.jpg);
+  height: 100vh;
+}
+
+.second-component-holder {
+  background-color: transparentize($color: #ffd700, $amount: 0.6);
+  
+  padding: 1em 1em 1em 1em;
+  margin-right: 2em;
+  border-radius: 1%;
+  font-family: 'Lato',sans-serif;
+  .new-tourn-button {
+    color: $rosy-pink;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 800;
+    font-size: 1.2em;
+  }
+}
+
+.all-page-container h1 {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 100;
+  
+}
+
+.all-page-container .card {
+  background-color: transparentize($color: #2F4454, $amount: 0.3);
+  border-style: none;
+  border-radius: 0;
+  width: fit-content;
+  box-sizing: content-box;
+  font-family: 'Lato',sans-serif;
+  font-size: 1.0em;
+  font-weight: 200;
+  transition: 0.3s;
+    p {
+      color:$rosy-pink;
+    }
+    .new-form-toggle-button {
+      background-color: transparentize($color: #000000, $amount: 1);
+      border-style: none;
+    }
+    .update-form-toggle-button {
+      background-color: transparentize($color: #000000, $amount: 1);
+      border-style: none;
+      color: $rosy-pink;
+    }
+
+}
+
+.all-page-container .card:hover {
+    background-color: $rosy-pink;
+    p {
+      color: white;
+    }
+}
+.all-page-container .card h2 {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 600;
+  color: white;
+  
+}
+
+.all-page-container .card-header {
+  border-style: none;
+  width: 100%;
+}

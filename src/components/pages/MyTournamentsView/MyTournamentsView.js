@@ -2,6 +2,7 @@ import React from 'react';
 import Tournament from '../../shared/Tournament/Tournament';
 import playerData from '../../../helpers/data/playerData';
 import Smash from '../../../helpers/data/smash';
+import './MyTournamentsView.scss';
 
 class MyTournamentsView extends React.Component {
   state = {
@@ -18,11 +19,13 @@ class MyTournamentsView extends React.Component {
   }
 
   updateAPlayer = (playerId, updatedPlayer) => {
-    playerData.updatePlayer(playerId, updatedPlayer);
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => this.getMyTournaments());
   }
 
   deleteAPlayer = (playerId) => {
-    playerData.deletePlayer(playerId);
+    playerData.deletePlayer(playerId)
+      .then(() => this.getMyTournaments());
   }
 
   componentDidMount() {
@@ -32,12 +35,17 @@ class MyTournamentsView extends React.Component {
   render() {
     const { myGoingTournaments, myWishlistTournaments } = this.state;
     return (
-    <div>
+    <div className="my-page-container">
+      <h2>I'm going to these tournaments!</h2>
       <div className="going-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
         {myGoingTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} updateAPlayer={this.updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))}
       </div>
+      <h2>Wishlist Tournaments</h2>
       <div className="wishlist-tournaments-container d-flex flex-row flex-wrap justify-content-around col-8">
-        {myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId} updateAPlayer={this.updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))}
+        { myWishlistTournaments.length > 0
+          ? myWishlistTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} isPersonalTournament={true} playerId={tournament.playerId} updateAPlayer={this.updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))
+          : ''
+        }
       </div>
     </div>
     );

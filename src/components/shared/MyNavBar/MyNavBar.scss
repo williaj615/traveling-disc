@@ -1,3 +1,27 @@
-#navbarTogglerDemo02  .navbar-nav {
-  text-align: end;
+@import '../../../styles/variables';
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto|Shadows+Into+Light|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+ nav {
+  background-color: transparentize($color: #ffd700, $amount: 0.4);
+  color: white;
+}
+
+.nav-item {
+  color: black;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.2em;
+}
+
+.nav-link {
+  background-color: $rosy-pink;
+  color: white;
+  font-family: 'Lato',sans-serif;
+}
+
+.navbar-brand {
+  font-family: 'Shadows Into Light', cursive;
+  color: black;
+  font-size: 2em;
+  font-weight: 550;
 }

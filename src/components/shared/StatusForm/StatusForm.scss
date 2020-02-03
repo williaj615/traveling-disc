@@ -1,0 +1,35 @@
+@import '../../../styles/variables';
+
+.player-modal {
+  font-family: $script-font;
+  font-weight: bolder;
+  color: white;
+  background-color: $rosy-pink;
+  border-style: none;
+  
+}
+
+.modal-body {
+  font-family: $details-font;
+  background-color: $ocean-blue;
+  border-style: none;
+}
+
+.modal-footer {
+  font-family: $details-font;
+  background-color: $ocean-blue;
+  border-style: none;
+}
+
+.form-check-label {
+  color: white;
+}
+.modal-update-button {
+background-color: #ffd700;
+color: black;
+}
+
+.modal-save-button {
+  background-color: $sunny-yellow;
+  color: black;
+}

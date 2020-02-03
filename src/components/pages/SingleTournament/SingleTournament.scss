@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+
+.SingleTournament {
+  background-image: url(../../../project-images/tim-marshall-vWKbNUNzc1s-unsplash.jpg);
+  height: 100vh;
+  color: white;
+    h1 {
+      font-family: $script-font;
+      padding-top: 0.5em;
+      color: black;
+    }
+}
+
+.single-tourn-info {
+  background-color: $ocean-blue;
+  width: 70vw;
+  margin: auto;
+  height: 75vh;
+  border-radius: 1%;
+  font-family: $details-font;
+
+    h3 {
+      font-family: $script-font
+    }
+}
+
+.interested-players-wrapper {
+  width: 100%;
+}
+
+.label {
+  font-family: $script-font;
+  color: $rosy-pink;
+    a {
+      color: $rosy-pink;
+    }
+}

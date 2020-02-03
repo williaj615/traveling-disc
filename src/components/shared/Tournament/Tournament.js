@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import tournamentShape from '../../../helpers/propz/tournamentShape';
 import authData from '../../../helpers/data/authData';
 import StatusForm from '../StatusForm/StatusForm';
 import playerData from '../../../helpers/data/playerData';
+import './Tournament.scss';
 
 
 class Tournament extends React.Component {
@@ -47,21 +50,25 @@ class Tournament extends React.Component {
     } = this.props;
     const { player } = this.state;
     return (
-      <div className="card tournament-card col-3 m-3">
+      <div className="card tournament-card d-flex text-center col-3 m-2">
       { tournament.uid === this.currentUser
-        ? (<div>
-          <button className="delete-button btn btn-danger mb-2" onClick={this.deleteTournamentEvent}>X</button>
-          <Link className="edit-button btn btn-dark" to={`/tourn/${tournament.id}/edit`}>Edit</Link>
+        ? (
+          <div className="card-header">
+            <div className="d-flex flex-row justify-content-end ml-0">
+              <button className="delete-button btn ml-2 mr-0 p-0" onClick={this.deleteTournamentEvent}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+              <Link className="edit-button btn mr-0 ml-3 mt-0 p-0" to={`/tourn/${tournament.id}/edit`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
+            </div>
+            <div className="d-flex flex-column text-center">
+              <h2 className="mt-0">{tournament.name}</h2>
+            </div>
           </div>)
-        : null
+        : (<h2 className="mt-4">{tournament.name}</h2>)
       }
-      <h3>{tournament.name}</h3>
-      <p>{tournament.startDate}</p>
-      <p>{tournament.endDate}</p>
-      <p>{tournament.bidFee}</p>
-      <p>{tournament.registrationLink}</p>
-      <Link className="btn btn-secondary" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
-      <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} player={player} updateAPlayer={updateAPlayer} saveAPlayer={saveAPlayer} deleteAPlayer={deleteAPlayer}/>
+      <div className="card-body">
+        <p>{tournament.startDate} - {tournament.endDate}</p>
+        <Link className="btn view-tournament-button" to={`/tourn/${tournament.id}`}>View Tournament Details</Link>
+        <StatusForm buttonLabel={this.state.buttonLabel} buttonLabel2={this.state.buttonLabel2} tournament={tournament} isPersonalTournament={isPersonalTournament} player={player} updateAPlayer={updateAPlayer} saveAPlayer={saveAPlayer} deleteAPlayer={deleteAPlayer}/>
+      </div>
     </div>
     );
   }
