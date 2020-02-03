@@ -1,9 +1,47 @@
+@import '../../../styles/variables.scss';
+
 .form-page {
   margin: 0 auto;
   background-image: url(../../../project-images/tim-marshall-vWKbNUNzc1s-unsplash.jpg);
   height: 100vh;
   width: 100%;
+    h1 {
+      font-family: $script-font;
+    }
 }
 form {
-  width: 75%;
+  width: 90%;
+  background-color: $ocean-blue;
+  .form-group {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1em;
+    label {
+      font-family: $script-font;
+      color: white;
+    }
+  }
+}
+
+.form-check-label1 {
+  color: $sunny-yellow;
+}
+
+.form-check-label2 {
+  color: $rosy-pink;
+}
+
+.tourn-update-button {
+  background-color: $sunny-yellow;
+  color: black;
+  width: 10%
+}
+
+.tourn-save-button {
+  background-color: white;
+  color: $rosy-pink;
+  width: 10%;
+}
+.tourn-cancelnew-button {
+  width: 10%;
 }

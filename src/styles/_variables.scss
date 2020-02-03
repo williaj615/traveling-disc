@@ -1,5 +1,10 @@
-$pink: pink;
-$very-dark-blue: #00003f;
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto|Shadows+Into+Light|Source+Sans+Pro&display=swap');
+
 $rosy-pink: #C38D9E;
 $light-orange: #E8A87C;
-$ocean-blue: #2F4454;
+$ocean-blue: transparentize($color: #2F4454, $amount: 0.3);
+$sunny-yellow: transparentize($color: #ffd700, $amount: 0.4);
+
+$script-font: 'Shadows Into Light', cursive;
+
+$details-font: 'Lato',sans-serif;

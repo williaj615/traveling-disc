@@ -107,33 +107,32 @@ class StatusForm extends React.Component {
     {isPersonalTournament ? <Button className="update-form-toggle-button" onClick={this.toggle}>{buttonLabel2}</Button>
       : <Button className="new-form-toggle-button" onClick={this.toggle}>{buttonLabel}</Button>}
     <Modal isOpen={this.state.modal} toggle={this.toggle}>
-      <ModalHeader toggle={this.toggle} className="player-modal">{tournament.name}</ModalHeader>
-      <ModalBody>
+      <ModalHeader toggle={this.toggle} className="player-modal"><h2>{tournament.name}</h2></ModalHeader>
+      <ModalBody className="modal-body">
         <div className="input-group">
           <div className="input-group-prepend">
-            <span className="input-group-text" id="">First and last name</span>
+            <span className="input-group-text" id="">First and Last name</span>
           </div>
           <input value={this.state.newPlayerName} type="text" className="form-control" onChange={this.nameChange}/>
         </div>
 
-        <div className="form-check">
+        <div className="form-check mt-3">
           <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" onChange={this.goingStatusChange} checked={this.state.newPlayerStatus === 'going'}/>
           <label className="form-check-label" htmlFor="exampleRadios1">
             I am going to this tournament!
           </label>
         </div>
-        <div className="form-check">
+        <div className="form-check mt-3">
           <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.wishlistStatusChange} checked={this.state.newPlayerStatus === 'wishlist'}/>
           <label className="form-check-label" htmlFor="exampleRadios2">
             I would like to go to this tournament!
           </label>
         </div>
       </ModalBody>
-      <ModalFooter>
-        <Button color="danger" onClick={this.deletePlayerEvent}>Take this tournament off of my list.</Button>
+      <ModalFooter className="modal-footer">
         { !player
-          ? <Button color="none" onClick={this.savePlayerEvent}>Save</Button>
-          : <Button color="none" onClick={this.updatePlayerEvent}>Update</Button>
+          ? <Button className="modal-save-button" color="none" onClick={this.savePlayerEvent}>Save</Button>
+          : <div><Button color="danger" onClick={this.deletePlayerEvent}>Take this tournament off of my list.</Button> <Button className="modal-update-button" color="none" onClick={this.updatePlayerEvent}>Update</Button></div>
         }
         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
       </ModalFooter>

@@ -35,13 +35,16 @@ class SingleTournament extends React.Component {
     return (
       <div className="SingleTournament">
         <h1>{tournament.name}</h1>
-        <p>{tournament.startDate}</p>
-        <p>{tournament.endDate}</p>
-        <p>{tournament.bidFee}</p>
-        <p>{tournament.registrationLink}</p>
-        <h3>Players interested in {tournament.name}</h3>
-        <div className="d-flex flex-row flex-wrap justify-content-around">
-        {tourneyPlayers.map((player) => (<Player key={player.id} player={player}/>))}
+        <div className="single-tourn-info pt-4">
+          <h4 className="label">Dates: </h4>
+          <p>{tournament.startDate} - {tournament.endDate}</p>
+          <h4 className="label"> Bid Fee: </h4>
+          <p>{tournament.bidFee}</p>
+          <h4 className="label"><a href={tournament.registrationLink}>Register here! </a></h4>
+          <h3 className="mt-5">Players interested in {tournament.name}:</h3>
+          <div className="interested-players-wrapper d-flex flex-row flex-wrap justify-content-around">
+          {tourneyPlayers.map((player) => (<Player key={player.id} player={player}/>))}
+          </div>
         </div>
       </div>
     );
