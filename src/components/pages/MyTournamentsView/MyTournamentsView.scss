@@ -4,9 +4,9 @@
   height: 100vh;
 }
 
-.my-page-container h1 {
-  font-family: 'Lato',sans-serif;
-  font-weight: 200;
+.my-page-container h1, h2{
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 100;
   
 }
 
@@ -20,6 +20,7 @@
   font-size: 1.0em;
   font-weight: 200;
   color: white;
+  transition: 0.3s;
   .new-form-toggle-button {
     background-color: transparentize($color: #000000, $amount: 1);
     border-style: none;
@@ -31,6 +32,14 @@
   }
 
 }
+
+.my-page-container .card:hover {
+  background-color: $rosy-pink;
+  .update-form-toggle-button {
+    color: white;
+  }
+}
+
 .my-page-container .card h2 {
   font-family: 'Shadows Into Light', cursive;
   font-weight: 600;

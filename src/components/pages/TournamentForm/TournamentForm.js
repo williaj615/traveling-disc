@@ -125,7 +125,7 @@ class TournamentForm extends React.Component {
     const { theIsBeach } = this.state;
     const { theIsInternational } = this.state;
     return (
-      <div className="form-page col-8 text-center d-flex flex-column">
+      <div className="form-page text-center d-flex flex-column">
         <h1 className="mt-2">Tournament Details</h1>
         <form className="">
           <div className="form-group">
