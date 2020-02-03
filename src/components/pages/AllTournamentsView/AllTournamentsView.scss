@@ -6,7 +6,8 @@
 
 .all-page-container {
   background-image: url(../../../project-images/tim-marshall-vWKbNUNzc1s-unsplash.jpg);
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
 }
 
 .second-component-holder {

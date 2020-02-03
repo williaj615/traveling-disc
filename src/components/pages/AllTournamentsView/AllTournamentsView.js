@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import tournamentData from '../../../helpers/data/tournamentData';
 import Tournament from '../../shared/Tournament/Tournament';
 import playerData from '../../../helpers/data/playerData';
+import Smash from '../../../helpers/data/smash';
 import './AllTournamentsView.scss';
 
 class AllTournamentsView extends React.Component {
@@ -10,6 +11,27 @@ class AllTournamentsView extends React.Component {
     tournaments: [],
     filteredTournaments: [],
 
+  }
+
+  getTournaments = () => {
+    tournamentData.getAllTournaments()
+      .then((tournaments) => {
+        this.setState({ tournaments, filteredTournaments: tournaments });
+      })
+      .catch((err) => console.error('error on get all tournaments', err));
+  }
+
+  getMyTournaments = () => {
+    Smash.myTournaments()
+      .then((mine) => {
+        this.setState({ myGoingTournaments: mine.myGoingTournaments, myWishlistTournaments: mine.myWishlistTournaments });
+      })
+      .catch((err) => console.error('err on get my wishlist tourneys', err));
+  }
+
+  deleteAPlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => this.getTournaments());
   }
 
   saveAPlayer = (newPlayer) => {
@@ -25,14 +47,8 @@ class AllTournamentsView extends React.Component {
       newPlayerTournamentId: '',
       newPlayerStatus: '',
     });
-  }
-
-  getTournaments = () => {
-    tournamentData.getAllTournaments()
-      .then((tournaments) => {
-        this.setState({ tournaments, filteredTournaments: tournaments });
-      })
-      .catch((err) => console.error('error on get all tournaments', err));
+    this.getMyTournaments();
+    this.getTournaments();
   }
 
 
@@ -76,7 +92,7 @@ class AllTournamentsView extends React.Component {
         <h1 className="mb-4 pt-3">All Tournaments</h1>
         <div className="d-flex flex-row">
           <div className="all-tournaments-container d-flex flex-row flex-wrap justify-content-around col-9">
-            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} saveAPlayer={this.saveAPlayer} updateAPlayer={updateAPlayer}/>))}
+            {this.state.filteredTournaments.map((tournament) => (<Tournament key={tournament.id} tournament={tournament} deleteATournament={this.deleteATournament} saveAPlayer={this.saveAPlayer} updateAPlayer={updateAPlayer} deleteAPlayer={this.deleteAPlayer}/>))}
           </div>
           <div className="filter-form col-3 mt-3">
             <div className="second-component-holder">
