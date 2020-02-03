@@ -39,6 +39,8 @@ class AllTournamentsView extends React.Component {
   deleteATournament = (tournamentId) => {
     tournamentData.deleteTournament(tournamentId)
       .then(() => {
+        playerData.getPlayersByTournamentId(tournamentId)
+          .then((players) => players.forEach((player) => playerData.deletePlayer(player.id)));
         this.getTournaments();
       });
   }
