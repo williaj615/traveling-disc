@@ -26,6 +26,7 @@ class StatusForm extends React.Component {
     isPersonalTournament: PropTypes.bool,
     updateAPlayer: PropTypes.func,
     saveAPlayer: PropTypes.func,
+    deleteAPlayer: PropTypes.func,
   }
 
   toggle = () => {
@@ -107,7 +108,15 @@ class StatusForm extends React.Component {
     {isPersonalTournament ? <Button className="update-form-toggle-button" onClick={this.toggle}>{buttonLabel2}</Button>
       : <Button className="new-form-toggle-button" onClick={this.toggle}>{buttonLabel}</Button>}
     <Modal isOpen={this.state.modal} toggle={this.toggle}>
-      <ModalHeader toggle={this.toggle} className="player-modal"><h2>{tournament.name}</h2></ModalHeader>
+      { !player
+        ? <ModalHeader toggle={this.toggle} className="player-modal">
+          <h2>{tournament.name}</h2>
+        </ModalHeader>
+        : <ModalHeader toggle={this.toggle} className="player-modal">
+        <h2>{tournament.name}</h2>
+        <p className="modal-header-warning"> Pssst, this tournament is already on your list, but you can update your attendance status below.</p>
+      </ModalHeader>
+      }
       <ModalBody className="modal-body">
         <div className="input-group">
           <div className="input-group-prepend">
