@@ -24,27 +24,31 @@
 
 ### Homepage View
 
-![Main View](screenshots/mainview.png)
+![Main View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/mainview.png)
+
+### Single Tournament View
+
+![Single Tournament View](screenshots/singletourney.png)
 
 ### Personal Tournaments View
 
-![Personal View](screenshots/mytourneys.png)
+![Personal View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/mytourneys.png)
 
 ### Create a New Tournament View
 
-![New Tournament View](screenshots/newtourney.png)
+![New Tournament View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/newtourney.png)
 
 ### Add to Personal Tournaments View
 
-![Add to Personal View](screenshots/addtourney.png)
+![Add to Personal View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/addtourney.png)
 
 ### Update Attendance Status View
 
-![Update Status View](screenshots/updatestatus.png)
+![Update Status View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/updatestatus.png)
 
 ### Logged Out View
 
-![Logged Out View](screenshots/loggedout.png)
+![Logged Out View](https://github.com/williaj615/traveling-disc/blob/master/screenshots/loggedout.png)
 
 ## Live Demo
 
