@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Traveling Disc
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- Single page web application created using **React**
+- **React routing** was used to navigate throughout the application
+- Full **CRUD** is completed on the tournament collection and player collection using Firebase as the database
+- **Reactstrap** was used to create the popup modal for the player status form
+- **Bootstrap** for grid layout control and simple margins
+- **Sass** for all other styling
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Versions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- React: 16.12.0
+- Reactstrap: 8.4.1
+- Axios: 0.19.1
+- Bootstrap: 4.4.1
+- Firebase: 7.7.0
+- Node-sass: 4.13.1
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Homepage View
 
-### `npm run build`
+![Main View](screenshots/Screen Shot 2020-03-05 at 10.56.23 AM.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Personal Tournaments View
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Personal View](screenshots/Screen Shot 2020-03-05 at 10.57.37 AM.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Create a New Tournament View
 
-### `npm run eject`
+![New Tournament View](screenshots/Screen Shot 2020-03-05 at 10.56.44 AM.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Add to Personal Tournaments View
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Add to Personal View](screenshots/Screen Shot 2020-03-05 at 10.57.02 AM.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Update Attendance Status View
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Update Status View](screenshots/Screen Shot 2020-03-05 at 10.57.18 AM.png)
 
-## Learn More
+### Logged Out View
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Logged Out View](screenshots/Screen Shot 2020-03-05 at 10.57.49 AM.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Live Demo
 
-### Code Splitting
+Click [here](https://traveling-disc.web.app/) to try out the live demo.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## How To Run
 
-### Analyzing the Bundle Size
+- Clone down the project
+- In the terminal run `npm install`
+- Create a firebase project [here](https://console.firebase.google.com/)
+- Create `src/helpers/apiKeys.json` file and add in your firebase keys that were created in the new firebase project. Feel free to reference the `apiKeys.example.json` file in the project for the correct structure.
+- Once set up to run enter the following in the terminal `npm start`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Future Features
 
-### Making a Progressive Web App
+- Carpooling Organization between interested and attending players.
+- Rate/Review Past Tournaments Attended.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Contributors
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Jasmine Williams](https://github.com/williaj615)
