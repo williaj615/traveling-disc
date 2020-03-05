@@ -24,27 +24,27 @@
 
 ### Homepage View
 
-![Main View](screenshots/Screen Shot 2020-03-05 at 10.56.23 AM.png)
+![Main View](screenshots/mainview.png)
 
 ### Personal Tournaments View
 
-![Personal View](screenshots/Screen Shot 2020-03-05 at 10.57.37 AM.png)
+![Personal View](screenshots/mytourneys.png)
 
 ### Create a New Tournament View
 
-![New Tournament View](screenshots/Screen Shot 2020-03-05 at 10.56.44 AM.png)
+![New Tournament View](screenshots/newtourney.png)
 
 ### Add to Personal Tournaments View
 
-![Add to Personal View](screenshots/Screen Shot 2020-03-05 at 10.57.02 AM.png)
+![Add to Personal View](screenshots/addtourney.png)
 
 ### Update Attendance Status View
 
-![Update Status View](screenshots/Screen Shot 2020-03-05 at 10.57.18 AM.png)
+![Update Status View](screenshots/updatestatus.png)
 
 ### Logged Out View
 
-![Logged Out View](screenshots/Screen Shot 2020-03-05 at 10.57.49 AM.png)
+![Logged Out View](screenshots/loggedout.png)
 
 ## Live Demo
 
