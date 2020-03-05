@@ -28,7 +28,7 @@
 
 ### Single Tournament View
 
-![Single Tournament View](screenshots/singletourney.png)
+![Single Tournament View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/singletourney.png)
 
 ### Personal Tournaments View
 
@@ -48,7 +48,7 @@
 
 ### Logged Out View
 
-![Logged Out View](https://github.com/williaj615/traveling-disc/blob/master/screenshots/loggedout.png)
+![Logged Out View](https://raw.githubusercontent.com/williaj615/traveling-disc/master/screenshots/loggedout.png)
 
 ## Live Demo
 
